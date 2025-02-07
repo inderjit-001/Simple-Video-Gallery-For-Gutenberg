@@ -12,6 +12,7 @@ import {
 	ToggleControl,
 	Button,
 	ColorPalette,
+	TextControl,
 } from "@wordpress/components";
 
 import "./editor.scss";
@@ -22,8 +23,6 @@ export default function Edit({ attributes, setAttributes }) {
 	const {
 		videos,
 		bgColor,
-		padding,
-		gap,
 		border,
 		autoplay,
 		mute,
@@ -33,6 +32,7 @@ export default function Edit({ attributes, setAttributes }) {
 		paddingMobile,
 		gapDesktop,
 		gapMobile,
+		maxWidth,
 	} = attributes;
 
 	// Handle video selection
@@ -70,6 +70,12 @@ export default function Edit({ attributes, setAttributes }) {
 					title={__("Grid Settings", "video-gallery-block")}
 					initialOpen={true}
 				>
+					<TextControl
+						label={__("MaxWidth (Desktop)", "video-gallery-block")}
+						value={maxWidth}
+						onChange={(value) => setAttributes({ maxWidth: value })}
+					/>
+
 					<RangeControl
 						label={__("Columns (Desktop)", "video-gallery-block")}
 						value={columnsDesktop}
@@ -170,6 +176,8 @@ export default function Edit({ attributes, setAttributes }) {
 					backgroundColor: bgColor,
 					padding: `${paddingDesktop}px`,
 					border: border ? "1px solid #000" : "none",
+					maxWidth: `${maxWidth}px`,
+					margin: "0 auto",
 				}}
 			>
 				{videos.map((video, index) => (

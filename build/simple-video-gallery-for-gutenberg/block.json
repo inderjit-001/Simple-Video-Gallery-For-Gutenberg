@@ -55,6 +55,10 @@
     "gapMobile": {
       "type": "number",
       "default": 5
+    },
+    "maxWidth": {
+      "type": "number",
+      "default": ""
     }
   },
   "textdomain": "simple-video-gallery-for-gutenberg",

@@ -29,6 +29,7 @@ export default function save({ attributes }) {
 		paddingMobile,
 		gapDesktop,
 		gapMobile,
+		maxWidth,
 	} = attributes;
 
 	return (
@@ -43,6 +44,8 @@ export default function save({ attributes }) {
 				backgroundColor: bgColor,
 				padding: `${paddingDesktop}px`,
 				border: border ? "1px solid #000" : "none",
+				maxWidth: `${maxWidth}px`,
+				margin: "0 auto",
 			}}
 		>
 			{videos.map((video, index) => (
