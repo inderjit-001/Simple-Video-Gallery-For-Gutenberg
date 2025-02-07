@@ -43,7 +43,6 @@ export default function save({ attributes }) {
 				backgroundColor: bgColor,
 				padding: `${paddingDesktop}px`,
 				border: border ? "1px solid #000" : "none",
-				color: "#fff",
 			}}
 		>
 			{videos.map((video, index) => (

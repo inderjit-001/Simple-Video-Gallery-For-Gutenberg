@@ -182,8 +182,7 @@ function Edit({
         gap: `${gapDesktop}px`,
         backgroundColor: bgColor,
         padding: `${paddingDesktop}px`,
-        border: border ? "1px solid #000" : "none",
-        color: "#fff"
+        border: border ? "1px solid #000" : "none"
       },
       children: videos.map((video, index) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         className: "video-item",
@@ -321,8 +320,7 @@ function save({
       gap: `${gapDesktop}px`,
       backgroundColor: bgColor,
       padding: `${paddingDesktop}px`,
-      border: border ? "1px solid #000" : "none",
-      color: "#fff"
+      border: border ? "1px solid #000" : "none"
     },
     children: videos.map((video, index) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
       className: "video-item",
@@ -423,7 +421,7 @@ module.exports = window["wp"]["i18n"];
   \***********************************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"ijs/simple-video-gallery-for-gutenberg","version":"0.1.0","title":"Simple Video Gallery For Gutenberg","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","example":{},"supports":{"html":false},"attributes":{"videos":{"type":"array","default":[]},"autoplay":{"type":"boolean","default":false},"mute":{"type":"boolean","default":false},"loop":{"type":"boolean","default":false},"controls":{"type":"boolean","default":true},"columnsDesktop":{"type":"number","default":3},"columnsMobile":{"type":"number","default":1},"paddingDesktop":{"type":"number","default":10},"paddingMobile":{"type":"number","default":5},"gapDesktop":{"type":"number","default":10},"gapMobile":{"type":"number","default":5}},"textdomain":"simple-video-gallery-for-gutenberg","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"ijs/simple-video-gallery-for-gutenberg","version":"0.1.0","title":"Simple Video Gallery For Gutenberg","category":"widgets","icon":"video-alt3","description":"Example block scaffolded with Create Block tool.","example":{},"supports":{"html":false},"attributes":{"videos":{"type":"array","default":[]},"autoplay":{"type":"boolean","default":false},"mute":{"type":"boolean","default":false},"loop":{"type":"boolean","default":false},"controls":{"type":"boolean","default":true},"columnsDesktop":{"type":"number","default":3},"columnsMobile":{"type":"number","default":1},"paddingDesktop":{"type":"number","default":10},"paddingMobile":{"type":"number","default":5},"gapDesktop":{"type":"number","default":10},"gapMobile":{"type":"number","default":5}},"textdomain":"simple-video-gallery-for-gutenberg","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
 
 /***/ })
 
