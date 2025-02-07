@@ -7,3 +7,15 @@
 .wp-block-ijs-simple-video-gallery-for-gutenberg {
 	border: 1px dotted #f00;
 }
+.video-gallery {
+	display: grid;
+	width: 100%;
+
+	.video-item {
+		position: relative;
+		video {
+			width: 100%;
+			height: auto;
+		}
+	}
+}

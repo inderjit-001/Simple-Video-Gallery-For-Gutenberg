@@ -10,4 +10,16 @@
   border: 1px dotted #f00;
 }
 
+.video-gallery {
+  display: grid;
+  width: 100%;
+}
+.video-gallery .video-item {
+  position: relative;
+}
+.video-gallery .video-item video {
+  width: 100%;
+  height: auto;
+}
+
 /*# sourceMappingURL=index.css.map*/

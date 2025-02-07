@@ -32,13 +32,29 @@
       "type": "boolean",
       "default": true
     },
-    "columns": {
+    "columnsDesktop": {
       "type": "number",
       "default": 3
     },
-    "gap": {
+    "columnsMobile": {
+      "type": "number",
+      "default": 1
+    },
+    "paddingDesktop": {
       "type": "number",
       "default": 10
+    },
+    "paddingMobile": {
+      "type": "number",
+      "default": 5
+    },
+    "gapDesktop": {
+      "type": "number",
+      "default": 10
+    },
+    "gapMobile": {
+      "type": "number",
+      "default": 5
     }
   },
   "textdomain": "simple-video-gallery-for-gutenberg",

@@ -1,11 +1,12 @@
 <?php
+
 /**
  * Plugin Name:       Simple Video Gallery For Gutenberg
- * Description:       Example block scaffolded with Create Block tool.
- * Version:           0.1.0
+ * Description:       The Simple Video Gallery for Gutenberg plugin allows you to easily create and customize a responsive video gallery within the WordPress block editor.
+ * Version:           1.0.0
  * Requires at least: 6.7
  * Requires PHP:      7.4
- * Author:            The WordPress Contributors
+ * Author:            Inderjit Singh
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       simple-video-gallery-for-gutenberg
@@ -13,7 +14,7 @@
  * @package Ijs
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (! defined('ABSPATH')) {
 	exit; // Exit if accessed directly.
 }
 
@@ -24,7 +25,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
-function ijs_simple_video_gallery_for_gutenberg_block_init() {
-	register_block_type( __DIR__ . '/build/simple-video-gallery-for-gutenberg' );
+function ijs_simple_video_gallery_for_gutenberg_block_init()
+{
+	register_block_type(__DIR__ . '/build/simple-video-gallery-for-gutenberg');
 }
-add_action( 'init', 'ijs_simple_video_gallery_for_gutenberg_block_init' );
+add_action('init', 'ijs_simple_video_gallery_for_gutenberg_block_init');

@@ -33,13 +33,18 @@ function Edit({
 }) {
   const {
     videos,
-    columns,
     bgColor,
     padding,
     gap,
     border,
     autoplay,
-    mute
+    mute,
+    columnsDesktop,
+    columnsMobile,
+    paddingDesktop,
+    paddingMobile,
+    gapDesktop,
+    gapMobile
   } = attributes;
 
   // Handle video selection
@@ -76,26 +81,50 @@ function Edit({
         title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Grid Settings", "video-gallery-block"),
         initialOpen: true,
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.RangeControl, {
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Columns", "video-gallery-block"),
-          value: columns,
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Columns (Desktop)", "video-gallery-block"),
+          value: columnsDesktop,
           onChange: value => setAttributes({
-            columns: value
+            columnsDesktop: value
           }),
           min: 1,
           max: 6
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.RangeControl, {
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Padding", "video-gallery-block"),
-          value: padding,
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Columns (Mobile)", "video-gallery-block"),
+          value: columnsMobile,
           onChange: value => setAttributes({
-            padding: value
+            columnsMobile: value
+          }),
+          min: 1,
+          max: 3
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.RangeControl, {
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Padding (Desktop)", "video-gallery-block"),
+          value: paddingDesktop,
+          onChange: value => setAttributes({
+            paddingDesktop: value
           }),
           min: 0,
           max: 50
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.RangeControl, {
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Gap", "video-gallery-block"),
-          value: gap,
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Padding (Mobile)", "video-gallery-block"),
+          value: paddingMobile,
           onChange: value => setAttributes({
-            gap: value
+            paddingMobile: value
+          }),
+          min: 0,
+          max: 50
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.RangeControl, {
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Gap (Desktop)", "video-gallery-block"),
+          value: gapDesktop,
+          onChange: value => setAttributes({
+            gapDesktop: value
+          }),
+          min: 0,
+          max: 50
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.RangeControl, {
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Gap (Mobile)", "video-gallery-block"),
+          value: gapMobile,
+          onChange: value => setAttributes({
+            gapMobile: value
           }),
           min: 0,
           max: 50
@@ -149,11 +178,12 @@ function Edit({
       className: "video-gallery",
       style: {
         display: "grid",
-        gridTemplateColumns: `repeat(${columns}, 1fr)`,
-        gap: `${gap}px`,
+        gridTemplateColumns: `repeat(${columnsDesktop}, 1fr)`,
+        gap: `${gapDesktop}px`,
         backgroundColor: bgColor,
-        padding: `${padding}px`,
-        border: border ? "1px solid #000" : "none"
+        padding: `${paddingDesktop}px`,
+        border: border ? "1px solid #000" : "none",
+        color: "#fff"
       },
       children: videos.map((video, index) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         className: "video-item",
@@ -270,23 +300,29 @@ function save({
 }) {
   const {
     videos,
-    columns,
     bgColor,
-    padding,
-    gap,
     border,
     autoplay,
-    mute
+    mute,
+    columnsDesktop,
+    columnsMobile,
+    paddingDesktop,
+    paddingMobile,
+    gapDesktop,
+    gapMobile
   } = attributes;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-    ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save(),
+    ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save({
+      className: "video-gallery"
+    }),
     style: {
       display: "grid",
-      gridTemplateColumns: `repeat(${columns}, 1fr)`,
-      gap: `${gap}px`,
+      gridTemplateColumns: `repeat(${columnsDesktop}, 1fr)`,
+      gap: `${gapDesktop}px`,
       backgroundColor: bgColor,
-      padding: `${padding}px`,
-      border: border ? "1px solid #000" : "none"
+      padding: `${paddingDesktop}px`,
+      border: border ? "1px solid #000" : "none",
+      color: "#fff"
     },
     children: videos.map((video, index) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
       className: "video-item",
@@ -387,7 +423,7 @@ module.exports = window["wp"]["i18n"];
   \***********************************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"ijs/simple-video-gallery-for-gutenberg","version":"0.1.0","title":"Simple Video Gallery For Gutenberg","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","example":{},"supports":{"html":false},"attributes":{"videos":{"type":"array","default":[]},"autoplay":{"type":"boolean","default":false},"mute":{"type":"boolean","default":false},"loop":{"type":"boolean","default":false},"controls":{"type":"boolean","default":true},"columns":{"type":"number","default":3},"gap":{"type":"number","default":10}},"textdomain":"simple-video-gallery-for-gutenberg","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"ijs/simple-video-gallery-for-gutenberg","version":"0.1.0","title":"Simple Video Gallery For Gutenberg","category":"widgets","icon":"smiley","description":"Example block scaffolded with Create Block tool.","example":{},"supports":{"html":false},"attributes":{"videos":{"type":"array","default":[]},"autoplay":{"type":"boolean","default":false},"mute":{"type":"boolean","default":false},"loop":{"type":"boolean","default":false},"controls":{"type":"boolean","default":true},"columnsDesktop":{"type":"number","default":3},"columnsMobile":{"type":"number","default":1},"paddingDesktop":{"type":"number","default":10},"paddingMobile":{"type":"number","default":5},"gapDesktop":{"type":"number","default":10},"gapMobile":{"type":"number","default":5}},"textdomain":"simple-video-gallery-for-gutenberg","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js"}');
 
 /***/ })
 

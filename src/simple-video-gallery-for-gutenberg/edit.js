@@ -19,8 +19,21 @@ import "./editor.scss";
 const ALLOWED_MEDIA_TYPES = ["video"];
 
 export default function Edit({ attributes, setAttributes }) {
-	const { videos, columns, bgColor, padding, gap, border, autoplay, mute } =
-		attributes;
+	const {
+		videos,
+		bgColor,
+		padding,
+		gap,
+		border,
+		autoplay,
+		mute,
+		columnsDesktop,
+		columnsMobile,
+		paddingDesktop,
+		paddingMobile,
+		gapDesktop,
+		gapMobile,
+	} = attributes;
 
 	// Handle video selection
 	const onSelectVideo = (media) => {
@@ -58,23 +71,44 @@ export default function Edit({ attributes, setAttributes }) {
 					initialOpen={true}
 				>
 					<RangeControl
-						label={__("Columns", "video-gallery-block")}
-						value={columns}
-						onChange={(value) => setAttributes({ columns: value })}
+						label={__("Columns (Desktop)", "video-gallery-block")}
+						value={columnsDesktop}
+						onChange={(value) => setAttributes({ columnsDesktop: value })}
 						min={1}
 						max={6}
 					/>
 					<RangeControl
-						label={__("Padding", "video-gallery-block")}
-						value={padding}
-						onChange={(value) => setAttributes({ padding: value })}
+						label={__("Columns (Mobile)", "video-gallery-block")}
+						value={columnsMobile}
+						onChange={(value) => setAttributes({ columnsMobile: value })}
+						min={1}
+						max={3}
+					/>
+					<RangeControl
+						label={__("Padding (Desktop)", "video-gallery-block")}
+						value={paddingDesktop}
+						onChange={(value) => setAttributes({ paddingDesktop: value })}
 						min={0}
 						max={50}
 					/>
 					<RangeControl
-						label={__("Gap", "video-gallery-block")}
-						value={gap}
-						onChange={(value) => setAttributes({ gap: value })}
+						label={__("Padding (Mobile)", "video-gallery-block")}
+						value={paddingMobile}
+						onChange={(value) => setAttributes({ paddingMobile: value })}
+						min={0}
+						max={50}
+					/>
+					<RangeControl
+						label={__("Gap (Desktop)", "video-gallery-block")}
+						value={gapDesktop}
+						onChange={(value) => setAttributes({ gapDesktop: value })}
+						min={0}
+						max={50}
+					/>
+					<RangeControl
+						label={__("Gap (Mobile)", "video-gallery-block")}
+						value={gapMobile}
+						onChange={(value) => setAttributes({ gapMobile: value })}
 						min={0}
 						max={50}
 					/>
@@ -131,11 +165,12 @@ export default function Edit({ attributes, setAttributes }) {
 				className="video-gallery"
 				style={{
 					display: "grid",
-					gridTemplateColumns: `repeat(${columns}, 1fr)`,
-					gap: `${gap}px`,
+					gridTemplateColumns: `repeat(${columnsDesktop}, 1fr)`,
+					gap: `${gapDesktop}px`,
 					backgroundColor: bgColor,
-					padding: `${padding}px`,
+					padding: `${paddingDesktop}px`,
 					border: border ? "1px solid #000" : "none",
+					color: "#fff",
 				}}
 			>
 				{videos.map((video, index) => (

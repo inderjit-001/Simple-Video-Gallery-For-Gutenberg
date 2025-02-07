@@ -17,19 +17,33 @@ import { useBlockProps } from "@wordpress/block-editor";
  */
 
 export default function save({ attributes }) {
-	const { videos, columns, bgColor, padding, gap, border, autoplay, mute } =
-		attributes;
+	const {
+		videos,
+		bgColor,
+		border,
+		autoplay,
+		mute,
+		columnsDesktop,
+		columnsMobile,
+		paddingDesktop,
+		paddingMobile,
+		gapDesktop,
+		gapMobile,
+	} = attributes;
 
 	return (
 		<div
-			{...useBlockProps.save()}
+			{...useBlockProps.save({
+				className: "video-gallery",
+			})}
 			style={{
 				display: "grid",
-				gridTemplateColumns: `repeat(${columns}, 1fr)`,
-				gap: `${gap}px`,
+				gridTemplateColumns: `repeat(${columnsDesktop}, 1fr)`,
+				gap: `${gapDesktop}px`,
 				backgroundColor: bgColor,
-				padding: `${padding}px`,
+				padding: `${paddingDesktop}px`,
 				border: border ? "1px solid #000" : "none",
+				color: "#fff",
 			}}
 		>
 			{videos.map((video, index) => (
