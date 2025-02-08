@@ -22,17 +22,12 @@ const ALLOWED_MEDIA_TYPES = ["video"];
 export default function Edit({ attributes, setAttributes }) {
 	const {
 		videos,
-		bgColor,
-		border,
 		autoplay,
 		mute,
 		columnsDesktop,
 		columnsMobile,
-		paddingDesktop,
-		paddingMobile,
 		gapDesktop,
 		gapMobile,
-		maxWidth,
 	} = attributes;
 
 	// Handle video selection
@@ -70,18 +65,13 @@ export default function Edit({ attributes, setAttributes }) {
 					title={__("Grid Settings", "video-gallery-block")}
 					initialOpen={true}
 				>
-					<TextControl
-						label={__("MaxWidth (Desktop)", "video-gallery-block")}
-						value={maxWidth}
-						onChange={(value) => setAttributes({ maxWidth: value })}
-					/>
-
 					<RangeControl
 						label={__("Columns (Desktop)", "video-gallery-block")}
 						value={columnsDesktop}
 						onChange={(value) => setAttributes({ columnsDesktop: value })}
 						min={1}
 						max={6}
+						__nextHasNoMarginBottom
 					/>
 					<RangeControl
 						label={__("Columns (Mobile)", "video-gallery-block")}
@@ -89,20 +79,7 @@ export default function Edit({ attributes, setAttributes }) {
 						onChange={(value) => setAttributes({ columnsMobile: value })}
 						min={1}
 						max={3}
-					/>
-					<RangeControl
-						label={__("Padding (Desktop)", "video-gallery-block")}
-						value={paddingDesktop}
-						onChange={(value) => setAttributes({ paddingDesktop: value })}
-						min={0}
-						max={50}
-					/>
-					<RangeControl
-						label={__("Padding (Mobile)", "video-gallery-block")}
-						value={paddingMobile}
-						onChange={(value) => setAttributes({ paddingMobile: value })}
-						min={0}
-						max={50}
+						__nextHasNoMarginBottom
 					/>
 					<RangeControl
 						label={__("Gap (Desktop)", "video-gallery-block")}
@@ -110,6 +87,7 @@ export default function Edit({ attributes, setAttributes }) {
 						onChange={(value) => setAttributes({ gapDesktop: value })}
 						min={0}
 						max={50}
+						__nextHasNoMarginBottom
 					/>
 					<RangeControl
 						label={__("Gap (Mobile)", "video-gallery-block")}
@@ -117,11 +95,7 @@ export default function Edit({ attributes, setAttributes }) {
 						onChange={(value) => setAttributes({ gapMobile: value })}
 						min={0}
 						max={50}
-					/>
-					<ToggleControl
-						label={__("Border", "video-gallery-block")}
-						checked={border}
-						onChange={(value) => setAttributes({ border: value })}
+						__nextHasNoMarginBottom
 					/>
 				</PanelBody>
 
@@ -133,21 +107,13 @@ export default function Edit({ attributes, setAttributes }) {
 						label={__("Autoplay", "video-gallery-block")}
 						checked={autoplay}
 						onChange={(value) => setAttributes({ autoplay: value })}
+						__nextHasNoMarginBottom
 					/>
 					<ToggleControl
 						label={__("Mute", "video-gallery-block")}
 						checked={mute}
 						onChange={(value) => setAttributes({ mute: value })}
-					/>
-				</PanelBody>
-
-				<PanelBody
-					title={__("Background Color", "video-gallery-block")}
-					initialOpen={true}
-				>
-					<ColorPalette
-						value={bgColor}
-						onChange={(color) => setAttributes({ bgColor: color })}
+						__nextHasNoMarginBottom
 					/>
 				</PanelBody>
 			</InspectorControls>
@@ -173,11 +139,6 @@ export default function Edit({ attributes, setAttributes }) {
 					display: "grid",
 					gridTemplateColumns: `repeat(${columnsDesktop}, 1fr)`,
 					gap: `${gapDesktop}px`,
-					backgroundColor: bgColor,
-					padding: `${paddingDesktop}px`,
-					border: border ? "1px solid #000" : "none",
-					maxWidth: `${maxWidth}px`,
-					margin: "0 auto",
 				}}
 			>
 				{videos.map((video, index) => (

@@ -9,7 +9,12 @@
 	"description": "Example block scaffolded with Create Block tool.",
 	"example": {},
 	"supports": {
-		"html": false
+		"html": false,
+		"align": ["wide", "full"],
+		"color": {
+			"background": true,
+			"text": false
+		}
 	},
 	"attributes": {
 		"videos": {
@@ -40,14 +45,6 @@
 			"type": "number",
 			"default": 1
 		},
-		"paddingDesktop": {
-			"type": "number",
-			"default": 10
-		},
-		"paddingMobile": {
-			"type": "number",
-			"default": 5
-		},
 		"gapDesktop": {
 			"type": "number",
 			"default": 10
@@ -55,10 +52,6 @@
 		"gapMobile": {
 			"type": "number",
 			"default": 5
-		},
-		"maxWidth": {
-			"type": "number",
-			"default": ""
 		}
 	},
 

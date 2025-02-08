@@ -25,11 +25,8 @@ export default function save({ attributes }) {
 		mute,
 		columnsDesktop,
 		columnsMobile,
-		paddingDesktop,
-		paddingMobile,
 		gapDesktop,
 		gapMobile,
-		maxWidth,
 	} = attributes;
 
 	return (
@@ -41,11 +38,6 @@ export default function save({ attributes }) {
 				display: "grid",
 				gridTemplateColumns: `repeat(${columnsDesktop}, 1fr)`,
 				gap: `${gapDesktop}px`,
-				backgroundColor: bgColor,
-				padding: `${paddingDesktop}px`,
-				border: border ? "1px solid #000" : "none",
-				maxWidth: `${maxWidth}px`,
-				margin: "0 auto",
 			}}
 		>
 			{videos.map((video, index) => (
